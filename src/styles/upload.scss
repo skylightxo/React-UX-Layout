@@ -1,0 +1,238 @@
+.upload {
+  text-align: center;
+  font-size: 13px;
+  font-family: Montserrat;
+
+  $parent: &;
+  $middle: 860px;
+  $small: 767px;
+
+  @media (max-height: $middle) {
+    font-size: 10px;
+  }
+
+  &__content {
+    .navbar {
+      position: relative;
+    }
+
+    .content__inner {
+      margin: 0;
+      padding: 0;
+    }
+
+    &-body {
+      height: calc(100% - 65px);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 25px;
+    }
+
+    &-inner {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__heading {
+    font-family: Crimson Text;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5.7em;
+    line-height: 140.62%;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+
+    // @media (max-height: 860px) {
+    //   font-size: 3.8em;
+    // }
+  }
+
+  &__subheading {
+    text-align: center;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 190%;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    margin: 0;
+
+    a,
+    label {
+      background: linear-gradient(173.32deg, #fdd226 0%, #ff5753 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: initial;
+      position: relative;
+      cursor: pointer;
+
+      &:before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(173.32deg, #fdd226 0%, #ff5753 100%);
+      }
+    }
+  }
+
+  &__textblock {
+    display: flex;
+    justify-content: space-around;
+
+    font-style: normal;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+
+    & > div {
+      width: 25em;
+
+      &:first-of-type {
+        margin-right: 15em;
+      }
+
+      p {
+        text-align: left;
+        position: relative;
+
+        &:first-child {
+          margin-bottom: 1.7em;
+        }
+
+        img {
+          position: absolute;
+          left: -40px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+
+  &__footer {
+    margin-top: 4em;
+    flex: 0 0 50px;
+
+    @media (max-height: $small) {
+      margin-top: 2em;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    transform: translateX(20px);
+
+    & > button:first-of-type {
+      margin-right: 15px;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+    min-width: 138px;
+    background: transparent;
+    border-radius: 34px;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 1em;
+    text-align: center;
+    color: #ffffff;
+    border: none;
+
+    &--emphasised {
+      padding: 10px 15px;
+      background: linear-gradient(167.74deg, #fdd226 0%, #ff5753 100%);
+    }
+
+    &--bordered {
+      padding: 9px 15px;
+      border: 1px solid #ff5753;
+    }
+  }
+
+  &__dataset-name-input {
+    margin: 0 auto 1em;
+    font-family: Crimson Text;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 5.7em;
+    text-align: center;
+    letter-spacing: -0.02em;
+    border: none;
+    border-bottom: 3px solid rgba(#e0e0e0, 0.1);
+    color: rgba(#ffffff, 0.65);
+
+    width: 824px;
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: rgba(#fff, 0.1);
+    }
+
+    @media (max-height: $small) {
+      margin-bottom: 0.4em;
+    }
+  }
+
+  &__dataset-name {
+    font-family: Crimson Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 140.62%;
+    text-align: center;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+  }
+
+  &__dragdrop-page {
+    #{$parent} {
+      &__heading {
+        margin-top: 0.1em;
+
+        @media (max-height: $middle) {
+          margin-top: 0;
+        }
+
+        @media (max-height: $small) {
+          font-size: 3em;
+        }
+      }
+
+      &__textblock {
+        margin-top: 2.7em;
+      }
+
+      &__button {
+        margin-top: 2em;
+      }
+    }
+  }
+
+  &__upload-page {
+    p {
+      &:first-of-type {
+        margin-top: 3em;
+        margin-bottom: 0.8em;
+      }
+
+      &:last-of-type {
+        margin-bottom: auto;
+      }
+    }
+  }
+}

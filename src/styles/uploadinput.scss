@@ -1,0 +1,255 @@
+.upload {
+  $parent: &;
+
+  &__file-input {
+    --background: #131a1e66;
+    --text-drop: #cac8ca;
+    --text-upload: #cac8ca;
+    --progress-color: #53ffb7;
+    --check-color: #53ffb7;
+    --border-radius: 200px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    margin: 1.6em auto 2em;
+    flex: 0 0 200px;
+
+    &:before {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: var(--background);
+      border-radius: var(--border-radius);
+      -webkit-transition: all 0.3s ease-out;
+      transition: all 0.3s ease-out;
+      box-shadow: var(--shadow-x, 0px) var(--shadow-y, 1px)
+        var(--shadow-blur, 3px) rgba(0, 0, 0, 0.1);
+      -webkit-transform: scale(var(--scale, 1));
+      transform: scale(var(--scale, 1));
+    }
+
+    @media (max-height: 767px) {
+      width: 150px;
+      height: 150px;
+      flex: 0 0 150px;
+      border-radius: 150px;
+    }
+
+    &--drag {
+      --scale: 1.03;
+      --shadow-y: 5px;
+      --shadow-blur: 20px;
+    }
+
+    &--loading {
+      #{$parent} {
+        &__text {
+          &--drop {
+            --opacity: 0;
+            -webkit-transition: opacity 0.15s ease-out;
+            transition: opacity 0.15s ease-out;
+          }
+
+          &--upload {
+            --opacity: 1;
+            -webkit-transition: opacity 0.15s ease-out 0.15s;
+            transition: opacity 0.15s ease-out 0.15s;
+          }
+        }
+
+        &__shadow {
+          --opacity: 1;
+        }
+
+        &__progress {
+          opacity: var(--opacity, 1);
+          -webkit-transform: scale(var(--scale, 1))
+            rotate(var(--rotate, -90deg));
+          transform: scale(var(--scale, 1)) rotate(var(--rotate, -90deg));
+
+          &-indicator {
+            -webkit-animation: progress-animate 3s ease 0.3s forwards;
+            animation: progress-animate 3s ease 0.3s forwards;
+
+            @media (max-height: 767px) {
+              transform: scale(0.75);
+              transform-origin: 50% 50%;
+            }
+          }
+        }
+      }
+    }
+
+    &--done {
+      --opacity: 0;
+
+      #{$parent} {
+        &__text--upload {
+          --opacity: 0;
+        }
+
+        &__shadow {
+          --opacity: 0;
+        }
+
+        &__progress {
+          --scale: 0.5;
+          -webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+          transition: opacity 0.3s, -webkit-transform 0.3s;
+          transition: transform 0.3s, opacity 0.3s;
+          transition: transform 0.3s, opacity 0.3s, -webkit-transform 0.3s;
+        }
+
+        &__check {
+          --opacity: 1;
+          --scale: 0.6;
+          --rotate: 0deg;
+          -webkit-transition: opacity 0.5s ease-in 0.3s,
+            -webkit-transform 0.5s ease-in-out 0.3s;
+          transition: opacity 0.5s ease-in 0.3s,
+            -webkit-transform 0.5s ease-in-out 0.3s;
+          transition: transform 0.5s ease-in-out 0.3s, opacity 0.5s ease-in 0.3s;
+          transition: transform 0.5s ease-in-out 0.3s, opacity 0.5s ease-in 0.3s,
+            -webkit-transform 0.5s ease-in-out 0.3s;
+
+          &-indicator {
+            -webkit-animation: check-animate 0.5s ease-in-out 0.3s forwards;
+            animation: check-animate 0.5s ease-in-out 0.3s forwards;
+          }
+        }
+      }
+    }
+  }
+
+  &__drop-here {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border-radius: var(--border-radius);
+    opacity: var(--opacity, 0);
+    overflow: hidden;
+    cursor: pointer;
+    text-indent: -9999px;
+    z-index: 1;
+  }
+
+  &__text {
+    position: absolute;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+
+    &--drop {
+      color: var(--text-drop);
+      opacity: var(--opacity, 1);
+      -webkit-transition: opacity 0.15s ease-out 0.15s;
+      transition: opacity 0.15s ease-out 0.15s;
+    }
+
+    &--upload {
+      color: var(--text-upload);
+      opacity: var(--opacity, 0);
+      -webkit-transition: opacity 0.15s ease-out;
+      transition: opacity 0.15s ease-out;
+    }
+  }
+
+  &__progress {
+    position: absolute;
+
+    &-indicator {
+      fill: none;
+      stroke: var(--progress-color);
+      stroke-width: 4;
+      stroke-dasharray: 722;
+      stroke-dashoffset: 722;
+    }
+  }
+
+  &__check {
+    position: absolute;
+    opacity: var(--opacity, 0);
+    -webkit-transform: scale(var(--scale, 0.9)) rotate(var(--rotate, 3deg));
+    transform: scale(var(--scale, 0.9)) rotate(var(--rotate, 3deg));
+    -webkit-transition: opacity 0.15s ease-in,
+      -webkit-transform 0.15s ease-in-out;
+    transition: opacity 0.15s ease-in, -webkit-transform 0.15s ease-in-out;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in;
+    transition: transform 0.15s ease-in-out, opacity 0.15s ease-in,
+      -webkit-transform 0.15s ease-in-out;
+
+    &-indicator {
+      width: 60px;
+      width: 60px;
+      fill: none;
+      stroke: var(--check-color);
+      stroke-width: 7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 100 0;
+      stroke-dashoffset: 100;
+    }
+  }
+
+  &__shadow {
+    opacity: var(--opacity, 0);
+    overflow: hidden;
+    position: absolute;
+    height: 150%;
+    width: 150%;
+    border-radius: var(--border-radius);
+    -webkit-filter: blur(30px);
+    filter: blur(30px);
+    z-index: -1;
+    -webkit-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+
+    &:before {
+      content: "";
+      position: absolute;
+      opacity: 0.2;
+      margin-top: 50px;
+      height: 110%;
+      width: 110%;
+      background-color: #131a1e;
+    }
+  }
+}
+
+@keyframes check-animate {
+  from {
+    stroke-dasharray: 0 100;
+    stroke-dashoffset: 0;
+  }
+  to {
+    stroke-dasharray: 100 0;
+    stroke-dashoffset: 100;
+  }
+}
+
+@keyframes progress-animate {
+  0% {
+    stroke-dashoffset: 722;
+  }
+  20% {
+    stroke-dashoffset: 500;
+  }
+  50% {
+    stroke-dashoffset: 322;
+  }
+  55% {
+    stroke-dashoffset: 300;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}

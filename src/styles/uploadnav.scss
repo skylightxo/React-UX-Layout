@@ -1,0 +1,52 @@
+.uploadnav {
+  &__links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 110px;
+    margin: 0 auto 10px;
+  }
+
+  &__link {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+
+    svg {
+      circle {
+        &.outer {
+          fill: none;
+        }
+
+        &.inner {
+          fill: rgba(#fff, 0.45);
+        }
+      }
+
+      &.visited {
+        circle.inner {
+          fill: url(#paint_linear);
+        }
+      }
+    }
+
+    &--active svg circle {
+      &.outer {
+        stroke: url(#paint_linear);
+        stroke-width: 2px;
+        fill: none;
+      }
+
+      &.inner {
+        fill: url(#paint_linear);
+      }
+    }
+  }
+
+  &__text {
+    color: rgba(#fff, 0.45);
+    font-family: Montserrat, Helvetica;
+    font-size: 12px;
+  }
+}

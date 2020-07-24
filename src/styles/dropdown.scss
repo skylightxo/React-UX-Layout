@@ -1,0 +1,42 @@
+.dropdown {
+  position: relative;
+  margin-left: auto;
+  margin-right: 10px;
+  color: rgba(#fff, 0.4);
+  font-family: Montserrat, Helvetica;
+  cursor: pointer;
+  z-index: 1;
+  font-size: 12px;
+  font-weight: 500;
+
+  &__title {
+    svg {
+      margin-left: 5px;
+    }
+
+    &:hover {
+      color: #fff;
+      path {
+        fill: #fff;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: calc(100% + 5px);
+    width: 100%;
+  }
+
+  &__option {
+    display: block;
+    line-height: 24px;
+    text-align: right;
+    cursor: pointer;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

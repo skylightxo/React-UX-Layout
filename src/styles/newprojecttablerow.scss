@@ -1,0 +1,42 @@
+.tbody__newproject {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 148.5%;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+
+  tr {
+    border-top: 1px solid #e0e0e01a;
+
+    &:not(:nth-last-child(2)) {
+      border-bottom: 1px solid #e0e0e01a;
+    }
+  }
+
+  .dataset__colorlabel {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: sub;
+    margin-right: 10px;
+
+    &--orange {
+      background: linear-gradient(
+        to right,
+        rgb(253, 210, 38) 0%,
+        rgb(255, 87, 83) 100%
+      );
+    }
+
+    &--blue {
+      background: linear-gradient(to right, #297db9 0%, #72d7dd 100%);
+    }
+
+    &--purple {
+      background: linear-gradient(to right, #df6ca6 0%, #8d65ec 100%);
+    }
+  }
+}

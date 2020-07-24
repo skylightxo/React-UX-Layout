@@ -1,0 +1,30 @@
+.newproject {
+  margin: 0 25px;
+  padding: 0;
+
+  .bordered {
+    border: 1px solid #ffffff1a;
+    border-radius: 6px;
+    width: 100%;
+    padding: 30px 15px 0;
+
+    &__heading {
+      font-family: montserrat;
+      font-size: 13px;
+      line-height: 140.62%;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      font-weight: 500;
+      text-transform: uppercase;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 15px;
+    }
+  }
+}
+
+.newprojectbutton {
+  width: 185px;
+  justify-content: space-around;
+}

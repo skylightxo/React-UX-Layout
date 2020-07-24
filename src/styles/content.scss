@@ -1,0 +1,129 @@
+.content {
+  box-sizing: border-box;
+  padding-left: 105px;
+  padding-right: 15px;
+  margin-top: 15px;
+
+  position: relative;
+  z-index: 4;
+
+  @media screen and (max-width: 500px) {
+    padding-left: 75px;
+  }
+
+  $content: &;
+
+  &.project {
+    padding-left: 55px;
+    flex: 1;
+
+    @media screen and (max-width: 500px) {
+      padding-left: 25px;
+    }
+  }
+
+  &__top {
+    padding: 15px 15px 0 105px;
+    padding-right: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__inner {
+    margin-left: 50px;
+    margin-top: 15px;
+    padding: 0 15px 0 0;
+    border-radius: 8px 8px 0 0;
+    position: relative;
+    overflow: hidden;
+
+    // 100vh - .content__top - (padding of #root) - (margin of .content from .content__top)
+    height: calc(100vh - 57px - 15px - 15px);
+  }
+
+  &__scrollable {
+    background-color: #131a1e66;
+    overflow-y: auto;
+    overflow-x: auto;
+    padding-bottom: 15px;
+    max-height: calc(100% - 65px - 15px);
+    border-radius: 0 0 8px 8px;
+
+    // &:after {
+    //   content: "";
+    //   display: block;
+    //   position: absolute;
+    //   bottom: 15px;
+    //   right: 15px;
+    //   left: 15px;
+    //   height: 15px;
+    //   background: linear-gradient(to right, #2f3942 0%, #192431 100%);
+    // }
+  }
+
+  &__item {
+    display: flex;
+    position: relative;
+  }
+
+  &__heading {
+    font-family: Crimson Text;
+    font-size: 30px;
+    line-height: 140.62%;
+    letter-spacing: -0.02em;
+    color: #ffffff;
+    font-weight: lighter;
+
+    span {
+      color: #eeeeee33;
+    }
+
+    @media screen and (max-width: 640px) {
+      font-size: 36px;
+    }
+  }
+
+  &__avatar {
+    background-size: 400%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-image: url(../images/user.jpeg);
+    background-position: 50% 40%;
+    filter: grayscale(1);
+  }
+
+  &__input {
+    background: transparent;
+    border: none;
+    outline-color: rgba(255, 255, 255, 0.2);
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: rgba(255, 255, 255, 0.3);
+    width: 220px;
+
+    &-wrapper {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      width: 293px;
+      height: 52px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 30px;
+      margin-right: 10px;
+      box-sizing: border-box;
+      padding-left: 30px;
+      padding-right: 20px;
+    }
+  }
+
+  &__notification {
+    width: 23px;
+    margin-right: 30px;
+    cursor: pointer;
+  }
+}

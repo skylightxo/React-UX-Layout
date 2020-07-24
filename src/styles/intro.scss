@@ -1,0 +1,91 @@
+.intro {
+  height: 100%;
+  min-height: 100vh;
+  width: 100%;
+  min-width: 320px;
+  position: relative;
+
+  &:before {
+    content: "";
+    background: url(/images/intro-bg.jpg) center center no-repeat;
+    background-size: cover;
+    opacity: 0.3;
+    filter: brightness(150%);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    @media screen and (max-width: 800px) {
+      display: none;
+    }
+  }
+
+  &__heading {
+    font-family: Crimson Text;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-size: 12vw;
+    color: white;
+    margin-top: 15vh;
+    line-height: 90%;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 50px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 999;
+    max-width: 50vw;
+    margin-left: 50px;
+
+    @media screen and (max-width: 500px) {
+      margin: auto;
+      max-width: 75vw;
+    }
+  }
+
+  &__text {
+    max-width: 460px;
+    font-family: Montserrat;
+    font-size: 12px;
+    line-height: 190%;
+    letter-spacing: 0.05em;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 2em 0 0;
+
+    @media screen and (max-width: 500px) {
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Montserrat;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    color: #ffffff;
+    margin-top: 35px;
+
+    &:hover {
+      .intro__arrow {
+        transform: translateX(10px);
+      }
+    }
+  }
+
+  &__arrow {
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+    width: 42px;
+  }
+}
