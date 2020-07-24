@@ -1,3 +1,7 @@
+## Used tools and libraries:
+
+React, Apexcharts, SASS
+
 ## Available Scripts
 
 In the project directory, you can run:
